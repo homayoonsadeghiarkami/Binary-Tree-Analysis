@@ -1,6 +1,6 @@
-#include <bits/stdc++.h>
 #include <windows.h>
 #include "tree.h"
+#include "consoletable.h"
 using namespace std;
 // Driver code
 int main()
@@ -53,6 +53,14 @@ int main()
 	{
 		cout <<"\tMin Heap : False\n";
 	}
+
+	ConsoleTable table{"Depth", "BST", "AVL", "Max Heap", "Min Heap"};
+	table.setPadding(2);
+	table.setStyle(0);
+	table += {std::to_string(125), "Flase", "True", "Flase", "Flase"};
+
+	std::cout << table;
+
 	while (true) {}
 }
 

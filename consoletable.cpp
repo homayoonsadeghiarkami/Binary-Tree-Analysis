@@ -1,6 +1,5 @@
 #include "consoletable.h"
 
-
 ConsoleTable::ConsoleTable(std::initializer_list<std::string> headers) : headers{headers}
 {
 	for (const auto &column : headers)
@@ -66,8 +65,10 @@ bool ConsoleTable::removeRow(unsigned int index)
 }
 
 
-ConsoleTable &ConsoleTable::operator+=(std::initializer_list<std::string> row) {
-	if (row.size() > widths.size()) {
+ConsoleTable &ConsoleTable::operator+=(std::initializer_list<std::string> row)
+{
+	if (row.size() > widths.size())
+	{
 		throw std::invalid_argument{"Appended row size must be same as header size"};
 	}
 
@@ -84,11 +85,13 @@ ConsoleTable &ConsoleTable::operator-=(const uint32_t rowIndex)
 }
 
 
-std::string ConsoleTable::getLine(RowType rowType) const {
+std::string ConsoleTable::getLine(RowType rowType) const
+{
 	std::stringstream line;
 	line << rowType.left;
 	for (unsigned int i = 0; i < widths.size(); ++i) {
-		for (unsigned int j = 0; j < (widths[i] + padding + padding); ++j) {
+		for (unsigned int j = 0; j < (widths[i] + padding + padding); ++j)
+		{
 			line << style.horizontal;
 		}
 		line << (i == widths.size() - 1 ? rowType.right : rowType.intersect);
@@ -97,10 +100,12 @@ std::string ConsoleTable::getLine(RowType rowType) const {
 }
 
 
-std::string ConsoleTable::getHeaders(Headers headers) const {
+std::string ConsoleTable::getHeaders(Headers headers) const
+{
 	std::stringstream line;
 	line << style.vertical;
-	for (unsigned int i = 0; i < headers.size(); ++i) {
+	for (unsigned int i = 0; i < headers.size(); ++i)
+	{
 		std::string text = headers[i];
 		line << SPACE_CHARACTER * static_cast<int>(padding) + text + SPACE_CHARACTER * static_cast<int>(widths[i] - text.length()) + SPACE_CHARACTER * static_cast<int>(padding);
 		line << style.vertical;
@@ -110,11 +115,13 @@ std::string ConsoleTable::getHeaders(Headers headers) const {
 }
 
 
-std::string ConsoleTable::getRows(Rows rows) const {
+std::string ConsoleTable::getRows(Rows rows) const
+{
 	std::stringstream line;
 	for (auto &row : rows) {
 		line << style.vertical;
-		for (unsigned int j = 0; j < row.size(); ++j) {
+		for (unsigned int j = 0; j < row.size(); ++j)
+		{
 			std::string text = row[j];
 			line << SPACE_CHARACTER * static_cast<int>(padding) + text + SPACE_CHARACTER * static_cast<int>(widths[j] - text.length()) + SPACE_CHARACTER * static_cast<int>(padding);
 			line << style.vertical;
@@ -126,7 +133,8 @@ std::string ConsoleTable::getRows(Rows rows) const {
 }
 
 
-std::ostream &operator<<(std::ostream &out, const ConsoleTable &consoleTable) {
+std::ostream &operator<<(std::ostream &out, const ConsoleTable &consoleTable)
+{
 	out << "\t" << consoleTable.getLine(consoleTable.style.top);
 	out << "\t" << consoleTable.getHeaders(consoleTable.headers);
 	out << "\t" << consoleTable.getLine(consoleTable.style.middle);
@@ -135,7 +143,8 @@ std::ostream &operator<<(std::ostream &out, const ConsoleTable &consoleTable) {
 	return out;
 }
 
-bool ConsoleTable::sort(bool ascending) {
+bool ConsoleTable::sort(bool ascending)
+{
 	if (ascending)
 		std::sort(rows.begin(), rows.end(), std::less<std::vector<std::string>>());
 	else
@@ -143,7 +152,8 @@ bool ConsoleTable::sort(bool ascending) {
 	return true;
 }
 
-void ConsoleTable::updateRow(unsigned int row, unsigned int header, std::string data) {
+void ConsoleTable::updateRow(unsigned int row, unsigned int header, std::string data)
+{
 	if (row > rows.size() - 1)
 		throw std::out_of_range{"Row index out of range."};
 	if (header > headers.size() - 1)
@@ -152,7 +162,8 @@ void ConsoleTable::updateRow(unsigned int row, unsigned int header, std::string 
 	rows[row][header] = data;
 }
 
-void ConsoleTable::updateHeader(unsigned int header, std::string text) {
+void ConsoleTable::updateHeader(unsigned int header, std::string text)
+{
 	if (header > headers.size())
 		throw std::out_of_range{"Header index out of range."};
 
@@ -160,7 +171,8 @@ void ConsoleTable::updateHeader(unsigned int header, std::string text) {
 }
 
 
-std::string operator*(const std::string &other, int repeats) {
+std::string operator*(const std::string &other, int repeats)
+{
 	std::string ret;
 	ret.reserve(other.size() * static_cast<unsigned long long>(repeats));
 	for (; repeats; --repeats)

@@ -1,10 +1,7 @@
 #ifndef PRINT_H
 #define PRINT_H
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 #include "tree.h"
-
-
 using namespace std;
 /* This Class And The Two Founction Is For The Beutifull Output Of Tree*/
 class Trunk
@@ -62,8 +59,6 @@ void printTree(TreeNode *root, Trunk *prev, bool isLeft)
 
 	printTree(root->left, trunk, false);
 }
-
-/* The End */
 void title()
 {
 	cout <<"\t\t      /$$$$$$$  /$$                                      /$$$$$$$$                           \n"<<
@@ -79,4 +74,5 @@ void title()
 		   "\t\t               [+] Coded By H.S [+]               \\______/        [+] ID:973613035 [+]        \n"<< endl;
 	cout << endl << endl;
 }
+/* The End */
 #endif // PRINT_H

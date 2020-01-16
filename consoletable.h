@@ -155,8 +155,6 @@ private:
 	friend std::ostream &operator<<(std::ostream &out, const ConsoleTable &consoleTable);
 
 };
-
-
 /// Repeats a given string n times
 /// \param other The string to repeat
 /// \param repeats The amount the string should be repeated

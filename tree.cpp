@@ -1,9 +1,5 @@
-#include <bits/stdc++.h>
-#include <windows.h>
 #include "tree.h"
 #include "supporting.h"
-using namespace std;
-
 /*  BTree Constructor */
 Tree::Tree()
 {
@@ -73,7 +69,7 @@ void Tree::build_tree()
 	}
 	system("cls");
 	title();
-	cout << "\t\nYour Tree:"<<endl << endl << endl << endl;
+	cout << "\t\n\tYour Tree:"<<endl << endl;
 	printTree(this->root,nullptr,false);
 }
 

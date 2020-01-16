@@ -57,5 +57,4 @@ int main()
 	table.setStyle(0);
 	table += {std::to_string(tree.depth - 1), IsBST, IsAVL, IsMaxHeap, IsMinHeap};
 	std::cout << table;
-	while (true) {}
 }

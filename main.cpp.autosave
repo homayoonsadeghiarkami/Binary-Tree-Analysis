@@ -13,7 +13,7 @@ int main()
 	SetConsoleCP(CP_UTF8);
 	SetConsoleOutputCP(CP_UTF8);
 	// The End
-
+	
 	Tree tree;
 	tree.make();
 	string IsBST , IsAVL, IsMaxHeap, IsMinHeap ;

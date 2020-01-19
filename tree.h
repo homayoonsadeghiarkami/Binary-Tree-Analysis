@@ -18,9 +18,8 @@ class Tree
 {
 public:
 	TreeNode* root;
-	int depth;
 	Tree();
-	void build_tree();
+	void make();
 	bool isBST(TreeNode* root, TreeNode* l, TreeNode* r);
 	int maxDepth(TreeNode * root);
 	bool isAVL(TreeNode * root);

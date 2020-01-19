@@ -81,19 +81,19 @@ bool Tree::isBST(TreeNode* root, TreeNode* l = nullptr, TreeNode* r = nullptr)
 	// Base condition
 	if (root == nullptr)
 		return true;
-
+	
 	// if left node exist then check it has
 	// correct data or not i.e. left node's data
 	// should be less than root's data
 	if (l != nullptr and root->data <= l->data)
 		return false;
-
+	
 	// if right node exist then check it has
 	// correct data or not i.e. right node's data
 	// should be greater than root's data
 	if (r != nullptr and root->data >= r->data)
 		return false;
-
+	
 	// check recursively for every node.
 	return isBST(root->left, l, root) and
 			isBST(root->right, root, r);
@@ -128,11 +128,11 @@ bool Tree::isAVL(TreeNode * root)
 	/* If tree is empty then return true */
 	if(root == nullptr)
 		return true;
-
+	
 	/* Get the height of left and right sub trees */
 	lDepth = this->maxDepth(root->left);
 	rDepth = this->maxDepth(root->right);
-
+	
 	if (abs(lDepth - rDepth) <= 1 && this->isAVL(root->left) && this->isAVL(root->right))
 		return true;
 	/* If we reach here then

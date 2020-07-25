@@ -26,7 +26,7 @@ Binary Tree Analysis requires [Qt Framework](https://www.qt.io/product/framework
 Install the dependencies and devDependencies and run the following commands:
 
 ```sh
-$ git clone 'https://gitlab.com/H.TESLA.S/binary-tree-analysis.git'
+$ git clone 'https://github.com/homayoonsadeghiarkami/Binary-Tree-Analysis.git'
 $ cd binary-tree-analysis
 $ open Tree.pro with Qt
 $ press CTRL + R to compile it
